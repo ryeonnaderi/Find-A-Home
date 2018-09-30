@@ -27,16 +27,7 @@ var UserSchema = new Schema({
       ref: "Housing"
     }
   ]
-  // houseids:	[],
-  // arrayOfDesires:	[
-  //     {item:	String,
-  //       itemWeight:	Number,
-  //       itemNumber:	{type: Schema.Types.UserId,
-  //           ref: wishlist},
-  //       itemCategory:	String,
-  //       itemQualifier
-  //       }
-  // ]
+  
   
 });
 

@@ -10,9 +10,12 @@ module.exports = {
     const encryptedPassword = bcrypt.hashSync(password, salt);
 
     db.Users.init().then(() => {
+      console.log(" email :" , email)
+      console.log("password: ", password)
+      console.log("encrypoted pass :", encryptedPassword)
       db.Users.create({email, password, encryptedPassword: encryptedPassword})
-      .then(dbModel => res.json(dbModel)
-      .catch(err => res.status(422).json(err) ))})
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err))})
           
   },
   findAll: function(req, res) {
@@ -42,11 +45,14 @@ module.exports = {
       .catch(err => res.status(422).json(err))
   },
   findUserHouses: function(req, res) {
+    console.log("email from user controller :" , req.params.email);
     db.Users.findOne({ email: req.params.email })
       .populate("houses")
       .select("houses")
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+      .then(dbModel => { 
+        console.log("dbModel from user controller :", dbModel);
+        res.json(dbModel)})
+       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {
     db.Book

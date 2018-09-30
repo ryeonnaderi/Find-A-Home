@@ -13,7 +13,7 @@ router.route("/:email")
 router.route("/:email/wishlist")
   .get(userController.findUserWishlist);
 
-router.route("/:email/houses")
+router.route("/:email/houses") 
   .get(userController.findUserHouses);
   
 // Matches with "/api/signin"

@@ -10,17 +10,6 @@ import{BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom"
 import "./App.css";
 import fakeAuth from "./components/Authentication"
 
-// const fakeAuth = {
-//   isAuthenticated: false,
-//   authenticate(cb){
-//     this.isAuthenticated = true
-//     setTimeout(cb, 100)
-//   },
-//   signout(cb){
-//     this.isAuthenticated = false
-//     setTimeout(cb, 100)
-//   }
-// }
 
 const PrivateRoute = ({component: Component, ...rest}) => (
   <Route {...rest} render={(props) => (
@@ -37,7 +26,7 @@ const App =() =>(
       <Route exact path = "/" component={Welcome}/>
       <Route exact path = "/login" component={Login}/>
       <Route exact path = "/signup" component={SignUp}/>
-      {/* <Route exact path = "/wishlist"  component={Wishlist}/> */}
+      
       <PrivateRoute exact path = "/:email/wishlist" component={Wishlist}/>
       <Route exact path = "/wishlist2" component={Wishlist2}/>
       <PrivateRoute exact path = "/:email/dashboard" component={Dashboard}/>

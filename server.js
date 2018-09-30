@@ -24,34 +24,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/houses")
 // Define API routes here
 app.use(routes)
 
-// app.post("/signup", (req,res)=> {
-//   const {email,password} = req.body;
 
-//   const salt = bcrypt.genSalt.Sync(10);
-//   const encryptedPassword = bcrypt.hashSync(password,salt);
-
-//   User.init()
-//   .then(()=>{
-//     db.User.create({
-//       email,
-//       password: encryptedPassword
-//     })
-//     .then(()=>{
-//       res.json({
-//         message: "user is created"
-//       })
-//       .catch(()=>{
-//         res.json({
-//           message: "opps their is an error"
-//         })
-//       })
-//     })
-//     .catch(()=>{
-//       res.json({
-//         message: "internal error"
-//       })
-//     })
-// })
 app.post("/submit", function(req, res) {
   User.create(req.body)
   .then(function(dbUser) {
